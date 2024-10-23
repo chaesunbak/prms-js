@@ -49,14 +49,13 @@ export function initStore() {
 
 export function addNewHistory(newHistory) {
   try {
-    if(store.detailList[store.todayId]){
-      store.detailList[store.todayId] = store.detailList[todayId].push(newHistory);
+    if (store.detailList[store.todayId]) {
+      store.detailList[store.todayId].push(newHistory);
     } else {
       store.detailList[store.todayId] = [newHistory];
     }
 
     store.currentFunds -= newHistory.amount;
-
     updateStorage();
     return true;
   } catch (error) {
